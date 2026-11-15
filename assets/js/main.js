@@ -5,12 +5,16 @@ document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().g
 const current=location.pathname.split('/').pop()||'index.html';
 document.querySelectorAll('.main-nav a').forEach(a=>{if(a.getAttribute('href')===current)a.classList.add('active');});
 
+const months={'января':0,'февраля':1,'марта':2,'апреля':3,'мая':4,'июня':5,'июля':6,'августа':7,'сентября':8,'октября':9,'ноября':10,'декабря':11};
+const dateValue=value=>{const text=(value||'').toLowerCase();const match=text.match(/(\d{1,2})\s+([а-яё]+)\s+(\d{4})/);if(match&&months[match[2]]!==undefined)return new Date(+match[3],months[match[2]],+match[1]).getTime();const year=text.match(/(19|20)\d{2}/);return year?new Date(+year[0],0,1).getTime():0;};
+document.querySelectorAll('.copy-citation').forEach(button=>button.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(button.dataset.citation||'');button.textContent='Цитирование скопировано';setTimeout(()=>button.textContent='Скопировать цитирование',2200);}catch{button.textContent='Не удалось скопировать';setTimeout(()=>button.textContent='Скопировать цитирование',2200);}}));
+
 const audioContainers=[...document.querySelectorAll('#audio-library, #volkoskaz-library')];
 if(audioContainers.length){
  const renderAudio=data=>{
    const tracks=data.tracks||[];
-   const journal=tracks.filter(track=>(track.category||'').toLowerCase().includes('волкосказ'));
-   const samples=tracks.filter(track=>!(track.category||'').toLowerCase().includes('волкосказ'));
+   const journal=tracks.filter(track=>(track.category||'').toLowerCase().includes('волкосказ')).sort((a,b)=>dateValue(b.date)-dateValue(a.date));
+   const samples=tracks.filter(track=>!(track.category||'').toLowerCase().includes('волкосказ')).sort((a,b)=>dateValue(b.date)-dateValue(a.date));
    const render=(container,list)=>{
      if(!container)return;
      container.innerHTML='';
@@ -36,7 +40,7 @@ const videoLibrary=document.querySelector('#video-library');
 if(videoLibrary){
  const renderVideos=data=>{
    videoLibrary.innerHTML='';
-   (data.videos||[]).forEach(video=>{
+   [...(data.videos||[])].sort((a,b)=>dateValue(b.date)-dateValue(a.date)).forEach(video=>{
      const card=document.createElement('article');card.className='media-item';
      const meta=document.createElement('div');meta.className='meta';meta.textContent=[video.channel,video.date].filter(Boolean).join(' · ');
      const title=document.createElement('h3');title.textContent=video.title||'Видеосюжет';
