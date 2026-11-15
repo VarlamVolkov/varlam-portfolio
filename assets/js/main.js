@@ -9,8 +9,7 @@ document.querySelectorAll('.main-nav a').forEach(a=>{if(a.getAttribute('href')==
 // Audio catalogue: add a track to audio-library.json and upload its MP3 to assets/audio/.
 const audioLibrary=document.querySelector('#audio-library');
 if(audioLibrary){
- fetch('audio-library.json').then(r=>{if(!r.ok)throw new Error('Не удалось загрузить каталог');return r.json();})
- .then(data=>{
+ const renderAudio=data=>{
    audioLibrary.innerHTML='';
    (data.tracks||[]).forEach(track=>{
      const card=document.createElement('article');card.className='audio-card';
@@ -24,14 +23,21 @@ if(audioLibrary){
      audio.append(source);card.append(info,audio);audioLibrary.append(card);
    });
    if(!data.tracks||!data.tracks.length)audioLibrary.innerHTML='<p class="note">Пока нет опубликованных аудиозаписей.</p>';
- }).catch(()=>{audioLibrary.innerHTML='<p class="note">Не удалось загрузить каталог аудиозаписей.</p>';});
+ };
+ fetch(new URL('audio-library.json',document.baseURI),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('catalog');return r.json();}).then(renderAudio).catch(()=>{
+   renderAudio({tracks:[
+     {title:'Либерия Грозного',category:'Волкосказ · выпуск 01',date:'22 марта 2026',description:'История о легендарной библиотеке Ивана Грозного.',src:'assets/audio/volkoskaz-01-liberia.mp3'},
+     {title:'Пётр I и зубная драма',category:'Волкосказ · выпуск 02',date:'28 марта 2026',description:'История стоматологии при Петре I.',src:'assets/audio/volkoskaz-02-petr.mp3'},
+     {title:'Тайная канцелярия',category:'Волкосказ · выпуск 03',date:'1 апреля 2026',description:'О тайном надзоре в России XVIII века.',src:'assets/audio/volkoskaz-03-kanclery.mp3'},
+     {title:'Права: поздно или в самый раз?',category:'Волкосказ · выпуск 04',date:'19 апреля 2026',description:'Личная история о получении водительских прав.',src:'assets/audio/volkoskaz-04-prava.mp3'}
+   ]});
+ });
 }
 
 // Video catalogue: add entries to video-library.json. Links may point to public Google Sites pages or shared video files.
 const videoLibrary=document.querySelector('#video-library');
 if(videoLibrary){
- fetch('video-library.json').then(r=>{if(!r.ok)throw new Error('Не удалось загрузить каталог');return r.json();})
- .then(data=>{
+ const renderVideos=data=>{
    videoLibrary.innerHTML='';
    (data.videos||[]).forEach(video=>{
      const card=document.createElement('article');card.className='media-item';
@@ -41,12 +47,13 @@ if(videoLibrary){
      const desc=document.createElement('p');desc.textContent=video.description||'';
      card.append(meta,title,desc);
      if(video.url){
-       const link=document.createElement('a');link.className='button';link.href=video.url;
+       const link=document.createElement('a');link.className='button media-link';link.href=video.url;
        link.target='_blank';link.rel='noopener noreferrer';link.textContent='Смотреть сюжет ↗';
        card.append(link);
      }
      videoLibrary.append(card);
    });
-   if(!data.videos||!data.videos.length)videoLibrary.innerHTML='<p class="note">Сюжеты появятся здесь после добавления ссылок в каталог видеоматериалов.</p>';
- }).catch(()=>{videoLibrary.innerHTML='<p class="note">Не удалось загрузить каталог видеоматериалов.</p>';});
+   if(!data.videos||!data.videos.length)videoLibrary.innerHTML='<p class="note">Ссылки на публикации будут добавлены сюда.</p>';
+ };
+ fetch(new URL('video-library.json',document.baseURI),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('catalog');return r.json();}).then(renderVideos).catch(()=>renderVideos({videos:[]}));
 }
