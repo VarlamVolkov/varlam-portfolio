@@ -1,3 +1,11 @@
 {
-  "videos": []
+  "videos": [
+    {
+      "title": "Все видеосюжеты и выступления",
+      "channel": "Google Диск",
+      "date": "Подборка",
+      "description": "Открытая папка с видеосюжетами, интервью и записями выступлений.",
+      "url": "https://drive.google.com/drive/folders/1CTBc16qLNxzRwL4ER8Lzmt_OZt_DJGoP?usp=sharing"
+    }
+  ]
 }
