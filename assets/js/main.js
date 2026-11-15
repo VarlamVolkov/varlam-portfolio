@@ -18,7 +18,7 @@ if(audioLibrary){
      const title=document.createElement('h3');title.textContent=track.title||'Аудиозапись';
      const desc=document.createElement('p');desc.textContent=track.description||'';
      info.append(meta,title,desc);
-     const audio=document.createElement('audio');audio.controls=true;audio.preload='none';
+     const audio=document.createElement('audio');audio.controls=true;audio.preload='metadata';
      const source=document.createElement('source');source.src=track.src;source.type='audio/mpeg';
      audio.append(source);card.append(info,audio);audioLibrary.append(card);
    });
@@ -48,7 +48,7 @@ if(videoLibrary){
      card.append(meta,title,desc);
      if(video.url){
        const link=document.createElement('a');link.className='button media-link';link.href=video.url;
-       link.target='_blank';link.rel='noopener noreferrer';link.textContent='Смотреть сюжет ↗';
+       link.target='_blank';link.rel='noopener noreferrer';link.textContent=video.linkText||'Открыть первоисточник ↗';
        card.append(link);
      }
      videoLibrary.append(card);
