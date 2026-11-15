@@ -1,0 +1,567 @@
+{
+  "profiles": [
+    {
+      "title": "Telegram · Варлам Волков",
+      "url": "https://t.me/iamVarlam",
+      "group": "Личное и новости"
+    },
+    {
+      "title": "Добро.ру · профиль волонтёра",
+      "url": "https://dobro.ru/volunteers/91665621/about",
+      "group": "Профили"
+    },
+    {
+      "title": "Behance · портфолио",
+      "url": "https://www.behance.net/varlamvolkov",
+      "group": "Профили"
+    },
+    {
+      "title": "RUSSPASS · профиль поставщика",
+      "url": "https://russpass.ru/provider-profile/6920619cc21254a150961c1b",
+      "group": "Профили"
+    },
+    {
+      "title": "Google Академия",
+      "url": "https://scholar.google.com/citations?user=aOtKClIAAAAJ",
+      "group": "Исследования"
+    },
+    {
+      "title": "ORCID",
+      "url": "https://orcid.org/0009-0007-8200-1363",
+      "group": "Исследования"
+    },
+    {
+      "title": "MakerWorld · Little Home",
+      "url": "https://makerworld.com/ru/@LittleHome",
+      "group": "Проекты"
+    },
+    {
+      "title": "Cults3D · Little Home",
+      "url": "https://cults3d.com/ru/polzovateli/LittleHome/3d-modeli",
+      "group": "Проекты"
+    },
+    {
+      "title": "Telegram · Little Home",
+      "url": "https://t.me/LittleHome",
+      "group": "Проекты"
+    },
+    {
+      "title": "Telegram · Культмассовик",
+      "url": "https://t.me/massworker",
+      "group": "Проекты"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-09",
+      "year": "2026",
+      "title": "«Мой район. Место встречи» — Якиманка с Михаилом Шуфутинским",
+      "description": "Выпуск программы «Москва Доверие» о районе Якиманка.",
+      "category": [
+        "media"
+      ],
+      "url": "https://www.doverie-tv.ru/videos/36526",
+      "source": "Москва Доверие",
+      "linkText": "Смотреть выпуск ↗",
+      "sort": "2026-09",
+      "video": "assets/video/07-yakimanka-shufutinsky-web.mov",
+      "sourceType": "video/quicktime",
+      "type": "video"
+    },
+    {
+      "date": "2026-07",
+      "year": "2026",
+      "title": "Пушкинская набережная",
+      "description": "Видеорепортаж об общественном пространстве у Парка Горького.",
+      "category": [
+        "media"
+      ],
+      "video": "assets/video/05-pushkinskaya-embankment.mov",
+      "source": "Видеорепортаж",
+      "sort": "2026-07",
+      "sourceType": "video/quicktime",
+      "type": "video",
+      "linkText": "Смотреть первоисточник ↗"
+    },
+    {
+      "date": "2026-06",
+      "year": "2026",
+      "title": "«Парк Горького — курорт в центре Москвы»",
+      "description": "Сюжет программы Первого канала «Доброе утро» о парке с участием экскурсовода Варлама Волкова.",
+      "category": [
+        "media"
+      ],
+      "url": "https://rutube.ru/video/149358c997bbe05a682488d85171c424/",
+      "source": "Первый канал · Доброе утро",
+      "linkText": "Смотреть сюжет ↗",
+      "sort": "2026-06",
+      "type": "video"
+    },
+    {
+      "date": "2026-05",
+      "year": "2026",
+      "title": "Парк Горького в годы войны",
+      "description": "Рассказ об исторической роли парка в годы войны в эфире ко Дню Победы.",
+      "category": [
+        "media"
+      ],
+      "url": "https://www.m24.ru/videos/09052026/899188",
+      "source": "Москва 24",
+      "linkText": "Смотреть сюжет ↗",
+      "sort": "2026-05",
+      "type": "video"
+    },
+    {
+      "date": "2026-04",
+      "year": "2026",
+      "title": "Аудиожурнал «Волкосказ»",
+      "description": "Авторские выпуски об истории, людях и неожиданных поворотах прошлого.",
+      "category": [
+        "projects"
+      ],
+      "url": "voice.html#volkoskaz",
+      "source": "Авторский проект",
+      "linkText": "Слушать выпуски ↗",
+      "sort": "2026-04",
+      "featuredProject": true
+    },
+    {
+      "date": "2026-01",
+      "year": "2026",
+      "title": "II место во Всероссийском конкурсе студенческих инициатив",
+      "description": "Команда Горького представила проект «Наследие Горького», занявший II место в номинации «Развитие предпринимательства» IV Всероссийского конкурса студенческих инициатив. На фото с церемонии Варлам и Оля.",
+      "category": [
+        "awards",
+        "volunteering"
+      ],
+      "image": "assets/images/student-initiatives-award.jpg",
+      "url": "https://www.csr.ru/ru/news/nagrazhdeny-pobediteli-iv-vserossiyskogo-konkursa-studencheskikh-initsiativ/",
+      "extraUrl": "https://t.me/iamVarlam/84",
+      "source": "IV Всероссийский конкурс студенческих инициатив",
+      "linkText": "Итоги конкурса ↗",
+      "extraText": "Пост Варлама ↗",
+      "sort": "2026-01",
+      "authors": "Волков В. Е., участник команды проекта «Наследие Горького»."
+    },
+    {
+      "date": "2026-02",
+      "year": "2026",
+      "title": "Молодёжный СерпаНТИн: AI и беспилотные технологии в туризме",
+      "description": "Участие в дискуссии о применении искусственного интеллекта в индустрии гостеприимства. Варлам Волков: «Искусственный интеллект в туризме — это стратегическая возможность пересобрать отрасль, превратив её в мощную созидательную индустрию. Настоящий технологический суверенитет требует трёхсторонней связки: заказчика, разработчика и эксперта».",
+      "category": [
+        "talks"
+      ],
+      "url": "https://leader-id.ru/events/591427",
+      "source": "Федеральный научный марафон",
+      "linkText": "Страница и запись эфира ↗",
+      "sort": "2026-02"
+    },
+    {
+      "date": "2026-01",
+      "year": "2026",
+      "title": "Интерактивный кластер как инструмент коммерциализации историко-культурного наследия городских парков на примере ЦПКиО им. М. Горького",
+      "description": "Статья о коммерциализации историко-культурного наследия городских парков.",
+      "category": [
+        "research"
+      ],
+      "url": "https://doi.org/10.22412/2414-9063-2026-20-1-146-160",
+      "source": "Современные проблемы сервиса и туризма",
+      "linkText": "Открыть DOI ↗",
+      "citation": "Волков В. Е., Волкова О. А., Ухина Т. В. Интерактивный кластер как инструмент коммерциализации историко-культурного наследия городских парков на примере ЦПКиО им. М. Горького // Современные проблемы сервиса и туризма. 2026. Т. 20, № 1. С. 146–160. DOI: 10.22412/2414-9063-2026-20-1-146-160.",
+      "sort": "2026-01",
+      "authors": "В. Е. Волков, О. А. Волкова, Т. В. Ухина.",
+      "details": "«Современные проблемы сервиса и туризма». 2026. Т. 20, № 1. С. 146–160."
+    },
+    {
+      "date": "2025-12",
+      "year": "2025",
+      "title": "Сервис RUSSPASS и экскурсии по паркам Москвы",
+      "description": "Видеосюжет о познавательных экскурсиях по московским паркам.",
+      "category": [
+        "media"
+      ],
+      "video": "assets/video/03-russpass-parks.mp4",
+      "source": "Видеосюжет",
+      "sort": "2025-12",
+      "sourceType": "video/mp4",
+      "type": "video",
+      "linkText": "Смотреть первоисточник ↗"
+    },
+    {
+      "date": "2025-11",
+      "year": "2025",
+      "title": "Активный Новый год: куда поехать",
+      "description": "Фрагмент программы о поездках и активном отдыхе в новогодние каникулы.",
+      "category": [
+        "media"
+      ],
+      "video": "assets/video/06-active-new-year.mp4",
+      "source": "Телесюжет · фрагмент",
+      "sort": "2025-11",
+      "sourceType": "video/mp4",
+      "type": "video",
+      "linkText": "Смотреть первоисточник ↗"
+    },
+    {
+      "date": "2025-08",
+      "year": "2025",
+      "title": "Возрождение храма Архангела Михаила",
+      "description": "Сюжет телеканала «Спас» об истории и возрождении храма.",
+      "category": [
+        "media"
+      ],
+      "video": "assets/video/04-archangel-michael.mov",
+      "source": "Телеканал «Спас»",
+      "sort": "2025-08",
+      "sourceType": "video/quicktime",
+      "type": "video",
+      "linkText": "Смотреть первоисточник ↗"
+    },
+    {
+      "date": "2025-06",
+      "year": "2025",
+      "title": "Это Москва. Инфраструктура",
+      "description": "Видеосюжет об инфраструктуре города.",
+      "category": [
+        "media"
+      ],
+      "video": "assets/video/02-moscow-infrastructure.mp4",
+      "source": "Москва 24",
+      "sort": "2025-06",
+      "sourceType": "video/mp4",
+      "type": "video",
+      "linkText": "Смотреть первоисточник ↗"
+    },
+    {
+      "date": "2025-04",
+      "year": "2025",
+      "title": "«Так начиналась война: каким было лето 1941-го в парке»",
+      "description": "Исторический материал к 80-летию Победы, подготовленный Варламом Волковым.",
+      "category": [
+        "press"
+      ],
+      "url": "https://parkgorkogo.ru/wp-content/uploads/2025/04/newspaper_maket_112.pdf",
+      "source": "Первая парковая · Парк Горького",
+      "linkText": "Читать выпуск газеты ↗",
+      "sort": "2025-04",
+      "type": "video"
+    },
+    {
+      "date": "2025-01",
+      "year": "2025",
+      "title": "Подставка-неваляшка для Алисы",
+      "description": "3D-модель для умной колонки, доступная для скачивания и самостоятельной печати.",
+      "category": [
+        "projects"
+      ],
+      "url": "https://makerworld.com/ru/models/3468555-roly-poly-stand-for-alice-speaker",
+      "extraUrl": "https://cults3d.com/ru/3d-model/dom/podstavka-nevalyashka-dlya-kolonki-alisa-tumbler-stand-for-the-alice-speaker",
+      "source": "Little Home",
+      "linkText": "Скачать на MakerWorld ↗",
+      "extraText": "Скачать на Cults3D ↗",
+      "sort": "2025-01",
+      "featuredProject": true
+    },
+    {
+      "date": "2024-11",
+      "year": "2024",
+      "title": "Финал Russian Event Awards 2024",
+      "description": "Варлам был на финале Russian Event Awards 2024. На окружном этапе проекты Парка Горького «НЕБО» и «Каток культуры и отдыха» получили первые места. Это командные результаты проектов, не личная награда Варлама.",
+      "category": [
+        "awards",
+        "press"
+      ],
+      "image": "assets/images/russian-event-awards-final.jpg",
+      "url": "https://parkgorkogo.ru/news/park-gorkogo-poluchil-glavnye-prizy-v-finale-okruzhnogo-etapa-premii-russian-event-awards/",
+      "extraUrl": "https://yakimanka.mos.ru/presscenter/news/detail/12600443.html?ysclid=mwi95naoc458046835",
+      "source": "Russian Event Awards · Парк Горького",
+      "linkText": "Результаты этапа ↗",
+      "extraText": "Материал Якиманки ↗",
+      "sort": "2024-10",
+      "thirdUrl": "https://t.me/iamVarlam/12",
+      "thirdText": "Пост Варлама ↗"
+    },
+    {
+      "date": "2024-01",
+      "year": "2024",
+      "title": "«Девушка с веслом»: тактильная модель для авторской экскурсии",
+      "description": "Реализованный проект, с которого началась работа с 3D-моделями: миниатюра утраченной скульптуры помогала знакомиться с её формой на ощупь.",
+      "category": [
+        "projects"
+      ],
+      "image": "assets/images/girl-with-oar-excursion.jpg",
+      "url": "projects.html#models",
+      "source": "Доступная культурная среда",
+      "linkText": "История проекта ↗",
+      "sort": "2024-01",
+      "featuredProject": true
+    },
+    {
+      "date": "2024-01",
+      "year": "2023–2024",
+      "title": "Ароматические свечи «Зажигая историю»",
+      "description": "Вместе с Олей в 2023–2024 годах создана серия ароматов, связанных с территорией и историей Парка Горького. Мы придумывали сценарии отдушек для каждого аромата; в 2023 году свечи стали подарками друзьям, близким и коллегам.",
+      "category": [
+        "projects"
+      ],
+      "url": "https://www.behance.net/gallery/184331945/kollekcija-svech-zazhigaja-istoriju-dlja-parka-gorkogo",
+      "source": "Behance",
+      "linkText": "Смотреть проект ↗",
+      "sort": "2023-01",
+      "featuredProject": true
+    },
+    {
+      "date": "2023-09",
+      "year": "2023",
+      "title": "Пилот VR-экскурсии «Воспоминания о будущем»",
+      "description": "Парк Горького и ARVIZIO разработали VR-экскурсию, позволяющую увидеть исторические образы парка. Варлам участвовал в представлении проекта; фотографии показывают посетителей в VR-очках.",
+      "category": [
+        "projects",
+        "press"
+      ],
+      "image": "assets/images/vr-tour-headsets-01.jpg",
+      "url": "https://rguts.ru/news/view/1528",
+      "source": "Парк Горького · ARVIZIO",
+      "linkText": "Материал РГУТИС ↗",
+      "sort": "2023-09",
+      "featuredProject": true
+    },
+    {
+      "date": "2023-01",
+      "year": "2025",
+      "title": "Первые стажировки людей с аутизмом в учреждениях культуры",
+      "description": "Публикация о первых сопровождаемых стажировках в Парке Горького, музее-заповеднике «Царицыно» и магазине «Моей мечты». В материале приводится комментарий Варлама Волкова об опыте стажёра в архиве парка.",
+      "category": [
+        "volunteering",
+        "press"
+      ],
+      "url": "https://www.dobro.live/publikacii/pervye-stazhirovki-lyudej-s-autizmom-nachalis-v-parke-gorkogo-muzee-zapovednike-caricyno-i-magazine-moej-mechty",
+      "source": "Добро.Live · «Искусство быть рядом»",
+      "linkText": "Читать публикацию ↗",
+      "sort": "2025-12"
+    },
+    {
+      "date": "2021-01",
+      "year": "2021",
+      "title": "Работа в социальных сетях как способ формирования цифровой компетентности у студентов",
+      "description": "Опубликованная статья о развитии цифровых компетенций студентов; материалы конференции с международным участием «Помогающие профессии в Российской Федерации».",
+      "category": [
+        "research"
+      ],
+      "source": "Всероссийская научно-практическая конференция с международным участием",
+      "linkText": "Цитирование",
+      "citation": "Зальцман Т. В., Волков В. Е. Работа в социальных сетях как способ формирования цифровой компетентности у студентов // Помогающие профессии в Российской Федерации: предварительные итоги и новые векторы развития: материалы Всероссийской научно-практической конференции с международным участием. 2021.",
+      "sort": "2021-01",
+      "authors": "Т. В. Зальцман, В. Е. Волков.",
+      "details": "Статья в материалах конференции «Помогающие профессии в Российской Федерации: предварительные итоги и новые векторы развития». 2021."
+    },
+    {
+      "date": "2021-01",
+      "year": "2020",
+      "title": "Первые онлайн-экскурсии для детей-сирот",
+      "description": "Публикация о студенческих онлайн-экскурсиях для воспитанников детского дома.",
+      "category": [
+        "volunteering",
+        "press"
+      ],
+      "url": "https://pstgu.ru/news/smi_o_pstgu/student_vuza_na_ilovayskoy_provodit_onlayn_ekskursii_dlya_detey_sirot/",
+      "extraUrl": "https://uv-kurier.ru/2020/11/23/student-iz-marina-provodit-onlajn-ekskursii-dlya-detej-sirot/",
+      "source": "ПСТГУ · УВ-Курьер",
+      "linkText": "Публикация ПСТГУ ↗",
+      "extraText": "Материал УВ-Курьер ↗",
+      "sort": "2020-11"
+    },
+    {
+      "date": "2020-01",
+      "year": "Дата не указана",
+      "title": "«Школа современных навыков» и экспедиция в детский дом Сафонова",
+      "description": "Преддипломный проект и командная экспедиция: занятия по цифровым навыкам и онлайн-экскурсия для воспитанников детского дома.",
+      "category": [
+        "volunteering",
+        "projects"
+      ],
+      "url": "https://schoolofmodernskills.tilda.ws/",
+      "extraUrl": "https://international.pstgu.ru/news/komanda_otdeleniya_sotsialnoy_i_molodezhnoy_raboty_vernulas_iz_ekspeditsii_v_detskiy_dom_goroda_safo/?ysclid=mwi7ui0k2p318921003",
+      "source": "Преддипломный проект · ПСТГУ",
+      "linkText": "Сайт проекта ↗",
+      "extraText": "Материал об экспедиции ↗",
+      "sort": "0000-01"
+    },
+    {
+      "date": "2020-01",
+      "year": "2020",
+      "title": "Влияние христианского учения о достоинстве человека на церковное социальное служение",
+      "description": "Опубликованная статья о достоинстве человека и церковном социальном служении; XV Покровские образовательные чтения.",
+      "category": [
+        "research"
+      ],
+      "source": "XV Покровские образовательные чтения",
+      "linkText": "Цитирование",
+      "citation": "Волков В. Е., Зальцман Т. В. Влияние христианского учения о достоинстве человека на церковное социальное служение // Диалог светской и церковной образовательных традиций: духовно-нравственное становление личности: пути и проблемы: материалы XV Покровских образовательных чтений. 2020.",
+      "sort": "2020-01",
+      "authors": "В. Е. Волков, Т. В. Зальцман.",
+      "details": "Статья в материалах XV Покровских образовательных чтений «Духовно-нравственное становление личности: пути и проблемы». 2020."
+    },
+    {
+      "date": "2018-01",
+      "year": "2018",
+      "title": "Волонтёрство на чемпионате мира по футболу FIFA 2018",
+      "description": "Волонтёрский опыт на чемпионате мира по футболу.",
+      "category": [
+        "volunteering"
+      ],
+      "url": "https://vk.ru/wall-127989850_138?ysclid=mwi84g3k8y21231438",
+      "source": "Публикация о волонтёрстве",
+      "linkText": "Читать ↗",
+      "sort": "2018-06"
+    },
+    {
+      "date": "2018-01",
+      "year": "2019",
+      "title": "Конкурс эссе «Щедрый не только по вторникам»",
+      "description": "В статье с итогами конкурса опубликована история студента ПСТГУ Варлама Волкова о первом опыте волонтёрства. Источник не указывает персональную награду Варлама.",
+      "category": [
+        "awards",
+        "press"
+      ],
+      "url": "https://blagosfera.ru/main/podvedeny-itogi-konkursa-shhedryj-ne-tolko-po-vtornikam/",
+      "source": "Благосфера · 1 апреля 2019",
+      "linkText": "Итоги и рассказ участника ↗",
+      "sort": "2019-04"
+    },
+    {
+      "sort": "2026-03",
+      "year": "2026",
+      "title": "Либерия Грозного",
+      "description": "История о легендарной библиотеке Ивана Грозного.",
+      "category": [
+        "audio",
+        "projects"
+      ],
+      "type": "audio",
+      "audio": "assets/audio/volkoskaz-01-liberia.mp3",
+      "displayDate": "22 марта 2026",
+      "source": "Волкосказ · выпуск 01",
+      "linkText": "Слушать в аудиоплеере",
+      "url": "voice.html#volkoskaz"
+    },
+    {
+      "sort": "2026-03",
+      "year": "2026",
+      "title": "Пётр I и зубная драма",
+      "description": "История стоматологии при Петре I.",
+      "category": [
+        "audio",
+        "projects"
+      ],
+      "type": "audio",
+      "audio": "assets/audio/volkoskaz-02-petr.mp3",
+      "displayDate": "28 марта 2026",
+      "source": "Волкосказ · выпуск 02",
+      "linkText": "Слушать в аудиоплеере",
+      "url": "voice.html#volkoskaz"
+    },
+    {
+      "sort": "2026-04",
+      "year": "2026",
+      "title": "Тайная канцелярия",
+      "description": "О тайном надзоре и государственном контроле в России XVIII века.",
+      "category": [
+        "audio",
+        "projects"
+      ],
+      "type": "audio",
+      "audio": "assets/audio/volkoskaz-03-kanclery.mp3",
+      "displayDate": "1 апреля 2026",
+      "source": "Волкосказ · выпуск 03",
+      "linkText": "Слушать в аудиоплеере",
+      "url": "voice.html#volkoskaz"
+    },
+    {
+      "sort": "2026-04",
+      "year": "2026",
+      "title": "Права: поздно или в самый раз?",
+      "description": "Личная история о получении водительских прав.",
+      "category": [
+        "audio",
+        "projects"
+      ],
+      "type": "audio",
+      "audio": "assets/audio/volkoskaz-04-prava.mp3",
+      "displayDate": "19 апреля 2026",
+      "source": "Волкосказ · выпуск 04",
+      "linkText": "Слушать в аудиоплеере",
+      "url": "voice.html#volkoskaz"
+    },
+    {
+      "sort": "2026-09",
+      "year": "2026",
+      "title": "Автоответчик Парка Горького",
+      "description": "Пример информационного голосового сообщения.",
+      "category": [
+        "audio"
+      ],
+      "type": "audio",
+      "audio": "assets/audio/park-gorky-phone-menu.mp3",
+      "displayDate": "Сентябрь 2026",
+      "source": "Информационная озвучка",
+      "linkText": "Слушать в аудиоплеере",
+      "url": "voice.html#samples"
+    },
+    {
+      "sort": "2026-11",
+      "year": "2026",
+      "title": "Little Home",
+      "description": "Коммерческий ролик для сервиса заказов товаров из Китая.",
+      "category": [
+        "audio"
+      ],
+      "type": "audio",
+      "audio": "assets/audio/little-home-ad.mp3",
+      "displayDate": "Ноябрь 2026",
+      "source": "Рекламная озвучка",
+      "linkText": "Слушать в аудиоплеере",
+      "url": "voice.html#samples"
+    },
+    {
+      "sort": "2026-08",
+      "year": "2026",
+      "title": "Круглый стол «Парку Горького — 98!»",
+      "description": "Разговор об истории и современной жизни парка.",
+      "category": [
+        "media"
+      ],
+      "type": "video",
+      "source": "Вечерняя Москва",
+      "url": "https://vm.ru/tv/1349694-parku-gorkogo-98-let",
+      "linkText": "Смотреть круглый стол ↗"
+    },
+    {
+      "sort": "2026-01",
+      "year": "2026",
+      "title": "От реставрации ротонд до канатной дороги",
+      "description": "Материал о Парке Горького с комментарием экскурсовода Варлама Волкова.",
+      "category": [
+        "media"
+      ],
+      "type": "video",
+      "source": "Вечерняя Москва",
+      "url": "https://vm.ru/moscow/1349579-ot-restavracii-rotond-do-kanatnoj-dorogi-chto-novogo-poyavilos-v-parke-gorkogo",
+      "linkText": "Читать в «Вечерней Москве» ↗"
+    },
+    {
+      "sort": "2024-01",
+      "year": "2024",
+      "title": "Особенности информационного обеспечения безбарьерной среды в пространствах городских объектов культуры в контексте развития экскурсионного туризма (на примере ГАУК ЦПКиО им. М. Горького)",
+      "description": "Исследование информационной доступности культурных пространств и экскурсионных услуг.",
+      "category": [
+        "research"
+      ],
+      "authors": "О. Е. Афанасьев, Л. А. Шаркова, В. Е. Волков.",
+      "details": "Сервис в России и за рубежом. 2024. Т. 18, № 1 (110). С. 189–211. DOI: 10.5281/zenodo.11357945.",
+      "url": "https://doi.org/10.5281/zenodo.11357945",
+      "linkText": "Открыть DOI ↗",
+      "citation": "Афанасьев О. Е., Шаркова Л. А., Волков В. Е. Особенности информационного обеспечения безбарьерной среды в пространствах городских объектов культуры в контексте развития экскурсионного туризма (на примере ГАУК ЦПКиО им. М. Горького) // Сервис в России и за рубежом. 2024. Т. 18, № 1 (110). С. 189–211. DOI: 10.5281/zenodo.11357945."
+    }
+  ]
+}
