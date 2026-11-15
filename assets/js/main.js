@@ -26,3 +26,27 @@ if(audioLibrary){
    if(!data.tracks||!data.tracks.length)audioLibrary.innerHTML='<p class="note">Пока нет опубликованных аудиозаписей.</p>';
  }).catch(()=>{audioLibrary.innerHTML='<p class="note">Не удалось загрузить каталог аудиозаписей.</p>';});
 }
+
+// Video catalogue: add entries to video-library.json. Links may point to public Google Sites pages or shared video files.
+const videoLibrary=document.querySelector('#video-library');
+if(videoLibrary){
+ fetch('video-library.json').then(r=>{if(!r.ok)throw new Error('Не удалось загрузить каталог');return r.json();})
+ .then(data=>{
+   videoLibrary.innerHTML='';
+   (data.videos||[]).forEach(video=>{
+     const card=document.createElement('article');card.className='media-item';
+     const meta=document.createElement('div');meta.className='meta';
+     meta.textContent=[video.channel,video.date].filter(Boolean).join(' · ');
+     const title=document.createElement('h3');title.textContent=video.title||'Видеосюжет';
+     const desc=document.createElement('p');desc.textContent=video.description||'';
+     card.append(meta,title,desc);
+     if(video.url){
+       const link=document.createElement('a');link.className='button';link.href=video.url;
+       link.target='_blank';link.rel='noopener noreferrer';link.textContent='Смотреть сюжет ↗';
+       card.append(link);
+     }
+     videoLibrary.append(card);
+   });
+   if(!data.videos||!data.videos.length)videoLibrary.innerHTML='<p class="note">Сюжеты появятся здесь после добавления ссылок в каталог видеоматериалов.</p>';
+ }).catch(()=>{videoLibrary.innerHTML='<p class="note">Не удалось загрузить каталог видеоматериалов.</p>';});
+}
