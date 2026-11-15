@@ -372,20 +372,20 @@
       "sort": "2020-11"
     },
     {
-      "date": "2020-01",
-      "year": "Дата не указана",
+      "date": "2020-10-18",
+      "year": "2020",
       "title": "«Школа современных навыков» и экспедиция в детский дом Сафонова",
       "description": "В рамках преддипломного проекта я вместе с командой проводил занятия по цифровым навыкам и организовал онлайн-экскурсию для воспитанников детского дома в Сафонове.",
       "category": [
-        "volunteering",
-        "projects"
+        "volunteering"
       ],
       "url": "https://schoolofmodernskills.tilda.ws/",
       "extraUrl": "https://international.pstgu.ru/news/komanda_otdeleniya_sotsialnoy_i_molodezhnoy_raboty_vernulas_iz_ekspeditsii_v_detskiy_dom_goroda_safo/?ysclid=mwi7ui0k2p318921003",
       "source": "Преддипломный проект · ПСТГУ",
       "linkText": "Сайт проекта ↗",
       "extraText": "Материал об экспедиции ↗",
-      "sort": "0000-01"
+      "sort": "2020-10",
+      "displayDate": "18 октября 2020"
     },
     {
       "date": "2020-01",
