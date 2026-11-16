@@ -31,19 +31,48 @@ const renderMedia=(item)=>{const card=renderTimelineCard(item,'media-item');card
 const videoLibrary=document.querySelector('#video-library');
 fetch(new URL('portfolio-data.json',document.baseURI),{cache:'no-store'}).then(r=>r.ok?r.json():{timeline:[],profiles:[]}).catch(()=>({timeline:[],profiles:[]})).then(portfolio=>{
  const timeline=newest(portfolio.timeline||[]);
- const renderAudio=(container,list)=>{if(!container)return;container.replaceChildren();list.forEach(item=>{const card=document.createElement('article');card.className='audio-card';const info=document.createElement('div');const meta=document.createElement('div');meta.className='audio-meta';meta.textContent=[item.source,item.displayDate||item.year].filter(Boolean).join(' · ');const title=document.createElement('h3');title.textContent=item.title;const desc=document.createElement('p');desc.textContent=item.description||'';info.append(meta,title,desc);const audio=document.createElement('audio');audio.controls=true;audio.preload='metadata';const source=document.createElement('source');source.src=item.audio;source.type='audio/mpeg';audio.append(source);card.append(info,audio);container.append(card);});};
+ const renderAudio=(container,list)=>{
+  if(!container)return;
+  const carousel=container.closest('[data-audio-carousel]');
+  container.replaceChildren();
+  list.forEach((item,index)=>{
+   const card=document.createElement('article');card.className='audio-card';
+   if(carousel){card.classList.add('audio-carousel-slide');card.setAttribute('role','group');card.setAttribute('aria-roledescription','слайд');card.setAttribute('aria-label',`${String(index+1).padStart(2,'0')} из ${String(list.length).padStart(2,'0')}`);}
+   const info=document.createElement('div');const meta=document.createElement('div');meta.className='audio-meta';meta.textContent=[item.source,item.displayDate||item.year].filter(Boolean).join(' · ');
+   const title=document.createElement('h3');title.textContent=item.title;const desc=document.createElement('p');desc.textContent=item.description||'';info.append(meta,title,desc);
+   const coverUrl=item.cover||item.image;if(coverUrl){const cover=document.createElement('img');cover.className='audio-cover';cover.src=coverUrl;cover.alt=item.coverAlt||item.imageAlt||`Обложка выпуска «${item.title}»`;cover.loading='lazy';card.classList.add('has-cover');card.append(cover);}
+   const audio=document.createElement('audio');audio.controls=true;audio.preload=carousel?'none':'metadata';audio.setAttribute('aria-label',`Слушать: ${item.title}`);
+   const source=document.createElement('source');source.src=item.audio;source.type='audio/mpeg';audio.append(source);card.append(info,audio);container.append(card);
+  });
+  if(carousel)setupAudioCarousel(carousel,container,list.length);
+ };
+ const setupAudioCarousel=(carousel,track,count)=>{
+  const counter=carousel.querySelector('[data-carousel-counter]');const dots=carousel.querySelector('[data-carousel-dots]');
+  const previous=carousel.querySelector('[data-carousel-prev]');const next=carousel.querySelector('[data-carousel-next]');
+  const viewport=carousel.querySelector('.audio-carousel-viewport');let active=0;
+  if(!count){if(counter)counter.textContent='00 / 00';if(previous)previous.disabled=true;if(next)next.disabled=true;return;}
+  if(dots){dots.replaceChildren();for(let i=0;i<count;i++){const dot=document.createElement('button');dot.type='button';dot.className='carousel-dot';dot.setAttribute('aria-label',`Перейти к выпуску ${i+1}`);dot.addEventListener('click',()=>goTo(i));dots.append(dot);}}
+  const goTo=index=>{active=(index+count)%count;track.style.transform=`translateX(-${active*100}%)`;track.querySelectorAll('.audio-carousel-slide').forEach((slide,i)=>{const visible=i===active;slide.setAttribute('aria-hidden',String(!visible));const player=slide.querySelector('audio');if(player)player.tabIndex=visible?0:-1;});if(counter)counter.textContent=`${String(active+1).padStart(2,'0')} / ${String(count).padStart(2,'0')}`;dots?.querySelectorAll('.carousel-dot').forEach((dot,i)=>{dot.classList.toggle('active',i===active);dot.setAttribute('aria-current',i===active?'true':'false');});};
+  previous?.addEventListener('click',()=>goTo(active-1));next?.addEventListener('click',()=>goTo(active+1));
+  carousel.addEventListener('keydown',event=>{if(event.target.closest('audio'))return;if(event.key==='ArrowLeft'){event.preventDefault();goTo(active-1);}if(event.key==='ArrowRight'){event.preventDefault();goTo(active+1);}});
+  if(viewport){let startX=0,startY=0;viewport.addEventListener('touchstart',event=>{const touch=event.changedTouches[0];startX=touch.clientX;startY=touch.clientY;},{passive:true});viewport.addEventListener('touchend',event=>{const touch=event.changedTouches[0];const deltaX=touch.clientX-startX;const deltaY=touch.clientY-startY;if(Math.abs(deltaX)>48&&Math.abs(deltaX)>Math.abs(deltaY)*1.2)goTo(active+(deltaX<0?1:-1));},{passive:true});}
+  goTo(0);
+ };
  renderAudio(document.querySelector('#audio-library'),timeline.filter(item=>(item.category||[]).includes('audio')&&!(item.category||[]).includes('projects')));
  renderAudio(document.querySelector('#volkoskaz-library'),timeline.filter(item=>(item.category||[]).includes('audio')&&(item.category||[]).includes('projects')));
  if(videoLibrary){videoLibrary.replaceChildren();timeline.filter(item=>item.type==='video').forEach(video=>videoLibrary.append(renderMedia(video)));}
  const researchItems=timeline.filter(item=>(item.category||[]).includes('research'));
  const papers=document.querySelector('#research-papers');if(papers){papers.replaceChildren();researchItems.forEach(item=>papers.append(renderPaper(item)));}
+ const aboutResearch=document.querySelector('#about-research-list');if(aboutResearch){aboutResearch.replaceChildren();researchItems.forEach(item=>aboutResearch.append(renderPaper(item)));}
  const homePapers=document.querySelector('#portfolio-research');if(homePapers){homePapers.replaceChildren();researchItems.forEach(item=>homePapers.append(renderPaper(item)));}
  const media=document.querySelector('#media-timeline');if(media){media.replaceChildren();timeline.filter(item=>item.type!=='video'&&item.type!=='audio'&&(item.category||[]).some(cat=>['media','press','talks','awards','volunteering'].includes(cat))).forEach(item=>media.append(renderMedia(item)));}
- const about=document.querySelector('#about-timeline');if(about){about.replaceChildren();timeline.forEach(item=>{const summary={...item};if(item.type==='video'){summary.video='';summary.url=item.url||'media.html';summary.linkText=item.linkText||'Открыть раздел с видеоматериалами ↗';}if(item.type==='audio'){summary.audio='';summary.url=item.url||'voice.html';summary.linkText=item.linkText||'Открыть аудиоматериалы ↗';}about.append(renderMedia(summary));});}
+ const experience=document.querySelector('#about-experience-list');if(experience){experience.replaceChildren();timeline.filter(item=>(item.category||[]).includes('media')&&item.type!=='video'&&item.type!=='audio').forEach(item=>experience.append(renderMedia(item)));}
  const profiles=document.querySelector('#profile-links');if(profiles){profiles.replaceChildren();(portfolio.profiles||[]).forEach(profile=>{const link=external(profile.url,profile.title+' ↗','profile-link');const group=document.createElement('span');group.textContent=profile.group;const card=document.createElement('div');card.className='profile-card';card.append(group,link);profiles.append(card);});}
  const renderGroup=(selector,items)=>{const container=document.querySelector(selector);if(container){container.replaceChildren();items.forEach(item=>container.append(renderTimelineCard(item,'impact-card')));}};
  renderGroup('#portfolio-volunteering',timeline.filter(item=>(item.category||[]).includes('volunteering')));
  renderGroup('#portfolio-awards',timeline.filter(item=>(item.category||[]).some(cat=>['awards','talks'].includes(cat))));
+ renderGroup('#about-public-list',timeline.filter(item=>(item.category||[]).includes('volunteering')));
+ renderGroup('#about-awards-list',timeline.filter(item=>(item.category||[]).some(cat=>['awards','talks'].includes(cat))));
  renderGroup('#portfolio-featured',timeline.filter(item=>item.type!=='video'&&item.type!=='audio'&&(item.category||[]).some(cat=>['press','talks'].includes(cat))).slice(0,4).map(item=>{const copy={...item};if(item.image)copy.imageAlt=item.title;return copy;}));
  document.querySelectorAll('#portfolio-projects').forEach(container=>{container.replaceChildren();timeline.filter(item=>(item.category||[]).includes('projects')&&!item.featuredProject&&item.type!=='audio').forEach(item=>container.append(renderTimelineCard(item,'media-item')));});
 });
