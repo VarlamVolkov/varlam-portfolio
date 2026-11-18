@@ -16,7 +16,7 @@ const renderTimelineCard=(item,kind='media-item')=>{
  const meta=document.createElement('div');meta.className=kind==='media-item'?'meta':'meta';meta.textContent=metaText(item);card.append(meta);
  const title=document.createElement('h3');title.textContent=item.title;card.append(title);
  const desc=document.createElement('p');desc.textContent=item.description||'';card.append(desc);
- if(item.image){const img=document.createElement('img');img.src=item.image;img.alt=item.imageAlt||item.title;img.loading='lazy';card.append(img);}
+ if(item.image){const img=document.createElement('img');img.src=item.image;img.alt=item.imageAlt||item.title;img.loading='lazy';if(item.imageFit==='contain')img.classList.add('image-contain');card.append(img);}
  if(item.video&&!item.url){const details=document.createElement('details');details.className='video-disclosure';const summary=document.createElement('summary');summary.textContent='Открыть видеозапись';const video=document.createElement('video');video.className='media-video';video.controls=true;video.preload='none';video.playsInline=true;video.dataset.src=item.video;video.dataset.type=item.sourceType||(item.video.endsWith('.mov')?'video/quicktime':'video/mp4');details.append(summary,video);details.addEventListener('toggle',()=>{if(details.open&&!video.querySelector('source')){const source=document.createElement('source');source.src=video.dataset.src;source.type=video.dataset.type;video.append(source);video.load();}});card.append(details);}
  if(item.audio){const audio=document.createElement('audio');audio.controls=true;audio.preload='metadata';const source=document.createElement('source');source.src=item.audio;source.type='audio/mpeg';audio.append(source);card.append(audio);}
  if(item.citation)card.append(citationButton(item.citation));
@@ -31,6 +31,22 @@ const renderMedia=(item)=>{const card=renderTimelineCard(item,'media-item');card
 const videoLibrary=document.querySelector('#video-library');
 fetch(new URL('portfolio-data.json',document.baseURI),{cache:'no-store'}).then(r=>r.ok?r.json():{timeline:[],profiles:[]}).catch(()=>({timeline:[],profiles:[]})).then(portfolio=>{
  const timeline=newest(portfolio.timeline||[]);
+ const education=portfolio.education||{};
+ document.querySelectorAll('[data-education]').forEach(container=>{
+  container.replaceChildren();
+  (education[container.dataset.education]||[]).forEach(item=>{
+   const card=document.createElement('article');card.className='education-card';
+   const period=document.createElement('div');period.className='education-year';period.textContent=item.period||'';
+   const title=document.createElement('h4');title.textContent=item.title||'';card.append(period,title);
+   if(item.institution){const institution=document.createElement('p');institution.textContent=item.institution;card.append(institution);}
+   if(item.honor){const honor=document.createElement('span');honor.className='education-honor';honor.textContent=item.honor;card.append(honor);}
+   container.append(card);
+  });
+ });
+ document.querySelectorAll('[data-education-skills]').forEach(list=>{
+  list.replaceChildren();(education.skills||[]).forEach(skill=>{const item=document.createElement('li');item.textContent=skill;list.append(item);});
+ });
+ document.querySelectorAll('[data-certificates-link]').forEach(link=>{if(education.certificatesUrl)link.href=education.certificatesUrl;});
  const renderAudio=(container,list)=>{
   if(!container)return;
   const carousel=container.closest('[data-audio-carousel]');
@@ -65,14 +81,14 @@ fetch(new URL('portfolio-data.json',document.baseURI),{cache:'no-store'}).then(r
  const papers=document.querySelector('#research-papers');if(papers){papers.replaceChildren();researchItems.forEach(item=>papers.append(renderPaper(item)));}
  const aboutResearch=document.querySelector('#about-research-list');if(aboutResearch){aboutResearch.replaceChildren();researchItems.forEach(item=>aboutResearch.append(renderPaper(item)));}
  const homePapers=document.querySelector('#portfolio-research');if(homePapers){homePapers.replaceChildren();researchItems.forEach(item=>homePapers.append(renderPaper(item)));}
- const media=document.querySelector('#media-timeline');if(media){media.replaceChildren();timeline.filter(item=>item.type!=='video'&&item.type!=='audio'&&(item.category||[]).some(cat=>['media','press','talks','awards','volunteering'].includes(cat))).forEach(item=>media.append(renderMedia(item)));}
+ const media=document.querySelector('#media-timeline');if(media){media.replaceChildren();timeline.filter(item=>item.type!=='video'&&item.type!=='audio'&&(item.category||[]).some(cat=>['media','press','talks'].includes(cat))&&!(item.category||[]).some(cat=>['awards','volunteering'].includes(cat))).forEach(item=>media.append(renderMedia(item)));}
  const experience=document.querySelector('#about-experience-list');if(experience){experience.replaceChildren();timeline.filter(item=>(item.category||[]).includes('media')&&item.type!=='video'&&item.type!=='audio').forEach(item=>experience.append(renderMedia(item)));}
  const profiles=document.querySelector('#profile-links');if(profiles){profiles.replaceChildren();(portfolio.profiles||[]).forEach(profile=>{const link=external(profile.url,profile.title+' ↗','profile-link');const group=document.createElement('span');group.textContent=profile.group;const card=document.createElement('div');card.className='profile-card';card.append(group,link);profiles.append(card);});}
  const renderGroup=(selector,items)=>{const container=document.querySelector(selector);if(container){container.replaceChildren();items.forEach(item=>container.append(renderTimelineCard(item,'impact-card')));}};
  renderGroup('#portfolio-volunteering',timeline.filter(item=>(item.category||[]).includes('volunteering')));
- renderGroup('#portfolio-awards',timeline.filter(item=>(item.category||[]).some(cat=>['awards','talks'].includes(cat))));
+ renderGroup('#portfolio-awards',timeline.filter(item=>(item.category||[]).includes('awards')));
  renderGroup('#about-public-list',timeline.filter(item=>(item.category||[]).includes('volunteering')));
- renderGroup('#about-awards-list',timeline.filter(item=>(item.category||[]).some(cat=>['awards','talks'].includes(cat))));
+ renderGroup('#about-awards-list',timeline.filter(item=>(item.category||[]).includes('awards')));
  renderGroup('#portfolio-featured',timeline.filter(item=>item.type!=='video'&&item.type!=='audio'&&(item.category||[]).some(cat=>['press','talks'].includes(cat))).slice(0,4).map(item=>{const copy={...item};if(item.image)copy.imageAlt=item.title;return copy;}));
  document.querySelectorAll('#portfolio-projects').forEach(container=>{container.replaceChildren();timeline.filter(item=>(item.category||[]).includes('projects')&&!item.featuredProject&&item.type!=='audio').forEach(item=>container.append(renderTimelineCard(item,'media-item')));});
 });
