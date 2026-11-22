@@ -12,9 +12,20 @@ if (location.hostname === 'varlamvoice.ru' || location.hostname === 'www.varlamv
       return response.text();
     })
     .then(page => {
+      const voicePage = new DOMParser().parseFromString(page, 'text/html');
+      const pageScripts = Array.from(voicePage.querySelectorAll('script[src]')).map(script => ({
+        attributes: Array.from(script.attributes, attribute => [attribute.name, attribute.value]),
+        parent: script.parentElement.tagName
+      }));
+      voicePage.querySelectorAll('script[src]').forEach(script => script.remove());
       document.open();
-      document.write(page);
+      document.write('<!doctype html>' + voicePage.documentElement.outerHTML);
       document.close();
+      pageScripts.forEach(({ attributes, parent }) => {
+        const script = document.createElement('script');
+        attributes.forEach(([name, value]) => script.setAttribute(name, value));
+        (parent === 'HEAD' ? document.head : document.body).append(script);
+      });
     })
     .catch(() => location.replace('/voice.html'));
 }
