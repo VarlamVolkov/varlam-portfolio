@@ -3,34 +3,6 @@
 <head>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<script>
-if (location.hostname === 'varlamvoice.ru' || location.hostname === 'www.varlamvoice.ru') {
-  document.documentElement.classList.add('voice-domain-loading');
-  fetch('/voice.html', { cache: 'no-cache' })
-    .then(response => {
-      if (!response.ok) throw new Error('Voice page is unavailable');
-      return response.text();
-    })
-    .then(page => {
-      const voicePage = new DOMParser().parseFromString(page, 'text/html');
-      const pageScripts = Array.from(voicePage.querySelectorAll('script[src]')).map(script => ({
-        attributes: Array.from(script.attributes, attribute => [attribute.name, attribute.value]),
-        parent: script.parentElement.tagName
-      }));
-      voicePage.querySelectorAll('script[src]').forEach(script => script.remove());
-      document.open();
-      document.write('<!doctype html>' + voicePage.documentElement.outerHTML);
-      document.close();
-      pageScripts.forEach(({ attributes, parent }) => {
-        const script = document.createElement('script');
-        attributes.forEach(([name, value]) => script.setAttribute(name, value));
-        (parent === 'HEAD' ? document.head : document.body).append(script);
-      });
-    })
-    .catch(() => location.replace('/voice.html'));
-}
-</script>
-<style>html.voice-domain-loading { visibility: hidden; }</style>
 <title>Варлам Волков — портфолио</title>
 <meta name="description" content="Портфолио Варлама Волкова: культурные и экскурсионные проекты, аудиожурнал, исследования, волонтёрство и публикации.">
 <meta name="theme-color" content="#f3f1ec">
@@ -68,11 +40,5 @@ if (location.hostname === 'varlamvoice.ru' || location.hostname === 'www.varlamv
 <section class="contact-band" id="contact"><div class="container"><div class="eyebrow" style="color:#d58d75">Связаться и обсудить сотрудничество</div><h2>Есть идея проекта?</h2><p>Открыт к культурным, экскурсионным, исследовательским и медийным проектам.</p><div class="contact-actions"><a href="mailto:volkov.varlam@yandex.ru">volkov.varlam@yandex.ru ↗</a><a href="https://t.me/iamVarlam" target="_blank" rel="noreferrer">Написать в Telegram ↗</a></div></div></section>
 </main>
 <footer class="site-footer"><p class="update-note">Я постепенно обновляю портфолио и не всегда успеваю сразу добавить все материалы. Следить за новостями и написать мне можно в <a href="https://t.me/iamVarlam" target="_blank" rel="noreferrer">Telegram</a>.</p><a class="brand" href="#top">ВАРЛАМ <span>ВОЛКОВ</span></a><div class="footer-links"><a href="https://t.me/iamVarlam" target="_blank" rel="noreferrer">Telegram ↗</a><a href="mailto:volkov.varlam@yandex.ru">Почта ↗</a></div><small>© <span data-year></span> Варлам Волков</small></footer>
-<script>
-if (location.hostname !== 'varlamvoice.ru' && location.hostname !== 'www.varlamvoice.ru') {
-  const portfolioScript = document.createElement('script');
-  portfolioScript.src = 'assets/js/main.js?v=20261118-1';
-  document.body.append(portfolioScript);
-}
-</script>
+<script src="assets/js/main.js?v=20261118-1"></script>
 </body></html>
