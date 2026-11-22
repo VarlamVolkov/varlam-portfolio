@@ -3,6 +3,23 @@
 <head>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>
+if (location.hostname === 'varlamvoice.ru' || location.hostname === 'www.varlamvoice.ru') {
+  document.documentElement.classList.add('voice-domain-loading');
+  fetch('/voice.html', { cache: 'no-cache' })
+    .then(response => {
+      if (!response.ok) throw new Error('Voice page is unavailable');
+      return response.text();
+    })
+    .then(page => {
+      document.open();
+      document.write(page);
+      document.close();
+    })
+    .catch(() => location.replace('/voice.html'));
+}
+</script>
+<style>html.voice-domain-loading { visibility: hidden; }</style>
 <title>Варлам Волков — портфолио</title>
 <meta name="description" content="Портфолио Варлама Волкова: культурные и экскурсионные проекты, аудиожурнал, исследования, волонтёрство и публикации.">
 <meta name="theme-color" content="#f3f1ec">
