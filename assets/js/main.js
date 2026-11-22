@@ -29,7 +29,7 @@ const renderPaper=item=>{const card=document.createElement('article');card.class
 const renderMedia=(item)=>{const card=renderTimelineCard(item,'media-item');card.querySelector('.meta').textContent=metaText(item);return card;};
 
 const videoLibrary=document.querySelector('#video-library');
-fetch(new URL('portfolio-data.json',document.baseURI),{cache:'no-store'}).then(r=>r.ok?r.json():{timeline:[],profiles:[]}).catch(()=>({timeline:[],profiles:[]})).then(portfolio=>{
+fetch('https://raw.githubusercontent.com/VarlamVolkov/varlam-portfolio/main/portfolio-data.json',{cache:'no-store'}).then(r=>r.ok?r.json():{timeline:[],profiles:[]}).catch(()=>({timeline:[],profiles:[]})).then(portfolio=>{
  const timeline=newest(portfolio.timeline||[]);
  const education=portfolio.education||{};
  document.querySelectorAll('[data-education]').forEach(container=>{
